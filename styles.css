@@ -1,0 +1,155 @@
+/* Base Styles & Glassmorphism */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0F0A1A; /* Very dark purple/gray */
+    color: #e5e7eb;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0F0A1A;
+}
+::-webkit-scrollbar-thumb {
+    background: #2A1F3D;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00E5FF;
+}
+
+/* Glassmorphism Utilities */
+.glass-nav {
+    background: rgba(15, 10, 26, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+    background: rgba(30, 20, 50, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+/* --- Crucial Animations --- */
+
+/* 1. Stealth Entrance for Avatar */
+@keyframes stealth-entrance {
+    0% {
+        opacity: 0;
+        transform: translateY(150px);
+        filter: blur(10px) brightness(0.5);
+    }
+    60% {
+        opacity: 0.8;
+        transform: translateY(-10px);
+        filter: blur(2px) brightness(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0) brightness(1);
+    }
+}
+
+/* 2. Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.avatar-stealth {
+    /* Fade out the bottom edge to avoid hard cuts during animation */
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    
+    /* Play stealth-entrance on load, then float infinitely */
+    animation: 
+        stealth-entrance 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
+        float 4s ease-in-out infinite 1.5s;
+}
+
+/* --- General Reveal Animations --- */
+.animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Reveal Classes */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typing animation for SOC and Contact */
+.typing-line {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid transparent;
+    width: 0;
+    animation: typing 2s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Floating Elements (Icons/Cards) */
+.animate-float-slow {
+    animation: float-card 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+    animation: float-card 4s ease-in-out infinite reverse;
+}
+
+@keyframes float-card {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Orbital Lines Background Effect */
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
