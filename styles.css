@@ -1,6 +1,7 @@
 /* Base Styles & Glassmorphism */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* Prevents navbar overlapping sections when scrolling */
 }
 
 body {
