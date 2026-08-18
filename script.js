@@ -374,4 +374,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
         observer.observe(el);
     });
+
+    // Make entire cert cards clickable and add hover overlay
+    document.querySelectorAll('.cert-card').forEach(card => {
+        card.classList.add('cursor-pointer');
+        
+        // Add magnifying glass overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'absolute inset-0 bg-theme-purple/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none rounded-xl';
+        overlay.innerHTML = '<i class="fas fa-search-plus text-5xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"></i>';
+        card.appendChild(overlay);
+
+        // Remove inline onclick from image to avoid double firing
+        const img = card.querySelector('img');
+        if(img) img.removeAttribute('onclick');
+
+        // Add click listener to the entire card
+        card.addEventListener('click', () => {
+            if(img) openModal(img.src);
+        });
+    });
 });
