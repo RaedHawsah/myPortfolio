@@ -224,3 +224,29 @@ body {
     animation: marquee 30s linear infinite;
     width: 200%;
 }
+/* Cyber Hover Effects */
+.hover-neon {
+    transition: all 0.3s ease;
+}
+.hover-neon:hover {
+    color: #00E5FF;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.7), 0 0 20px rgba(0, 229, 255, 0.5);
+}
+.hover-neon-purple {
+    transition: all 0.3s ease;
+}
+.hover-neon-purple:hover {
+    color: #A855F7;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.7), 0 0 20px rgba(168, 85, 247, 0.5);
+}
+.hover-card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.hover-card-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -5px rgba(0, 229, 255, 0.2);
+    border-color: rgba(0, 229, 255, 0.5);
+}
+.hover-text-glow:hover {
+    text-shadow: 0 0 15px currentColor;
+}
