@@ -250,3 +250,10 @@ body {
 .hover-text-glow:hover {
     text-shadow: 0 0 15px currentColor;
 }
+
+.bg-grid-pattern {
+    background-image: linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
