@@ -82,7 +82,7 @@
 </head>
 
 <body
-    class="bg-theme-bg text-gray-300 font-display antialiased overflow-x-hidden min-h-screen selection:bg-theme-cyan selection:text-white">
+    class="bg-theme-bg text-gray-300 font-display antialiased min-h-screen selection:bg-theme-cyan selection:text-white">
 
     <!-- Navigation -->
     <nav class="fixed w-[95%] lg:w-[95%] max-w-[1400px] z-50 top-6 left-1/2 -translate-x-1/2 h-[76px] flex justify-between items-center px-6 lg:px-8 glass-nav-pill rounded-full"
@@ -163,7 +163,30 @@
                 <i class="fas fa-file-download"></i> Download Resume
             </a>
         </div>
+
+        <!-- Mobile Menu Button (Hamburger) -->
+        <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-theme-cyan transition-colors z-[60] text-2xl w-10 h-10 flex items-center justify-center relative">
+            <i class="fas fa-bars transition-transform duration-300" id="mobile-menu-icon"></i>
+        </button>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0F0A1A]/98 backdrop-blur-3xl z-[55] flex flex-col items-center justify-center gap-6 transition-all duration-500 opacity-0 pointer-events-none translate-y-8 lg:hidden">
+        <a href="#home" class="mobile-link text-3xl font-bold uppercase tracking-widest text-gray-300 hover:text-theme-cyan transition-colors"><i class="fas fa-compass mr-3 text-theme-cyan"></i>Home</a>
+        <a href="#skills" class="mobile-link text-3xl font-bold uppercase tracking-widest text-gray-300 hover:text-theme-purple transition-colors"><i class="fas fa-bolt mr-3 text-theme-purple"></i>Skills</a>
+        <a href="#projects" class="mobile-link text-3xl font-bold uppercase tracking-widest text-gray-300 hover:text-theme-cyan transition-colors"><i class="fas fa-terminal mr-3 text-theme-cyan"></i>Projects</a>
+        <a href="#experience" class="mobile-link text-3xl font-bold uppercase tracking-widest text-gray-300 hover:text-theme-purple transition-colors"><i class="fas fa-briefcase mr-3 text-theme-purple"></i>Experience</a>
+        <a href="#certifications" class="mobile-link text-3xl font-bold uppercase tracking-widest text-gray-300 hover:text-theme-cyan transition-colors"><i class="fas fa-medal mr-3 text-theme-cyan"></i>Certifications</a>
+        
+        <div class="flex gap-4 mt-8">
+            <a href="https://github.com/RaedHawsah" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full text-white bg-white/10 hover:bg-theme-cyan hover:text-black transition-all text-xl"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/raed-hawsah" target="_blank" class="w-12 h-12 flex items-center justify-center rounded-full text-white bg-white/10 hover:bg-theme-purple hover:text-white transition-all text-xl"><i class="fab fa-linkedin"></i></a>
+        </div>
+        
+        <a href="./Raed_Hawsah_Resume.pdf" target="_blank" download class="mt-4 px-8 py-3 rounded-full bg-theme-cyan/20 border border-theme-cyan/50 text-theme-cyan font-bold hover:bg-theme-cyan hover:text-black transition-all">
+            <i class="fas fa-file-download mr-2"></i> Download Resume
+        </a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home"
