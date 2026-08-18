@@ -44,14 +44,6 @@
 
     <!-- Blob Wave & Spin Animation Styles -->
     <style>
-        @keyframes blob-wave {
-            0% {
-                transform: translate(0px, 0px) scale(1);
-                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            }
-            33% {
-                transform: translate(50px, -50px) scale(1.25);
-                border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
             }
             66% {
                 transform: translate(-40px, 40px) scale(0.85);
@@ -243,15 +235,15 @@
             
             <!-- Organic Blob Wave Lights behind character (Cyan, Blue, Purple, Pink) - NO SPIN -->
             <!-- Rendered inside the z-20 container so it's over the canvas, preventing foggy look, but z-0 keeps it behind the z-10 avatar -->
-            <div class="absolute bottom-0 right-0 w-full h-full pointer-events-none mix-blend-screen opacity-90 z-0">
+            <div class="absolute bottom-0 right-0 w-full h-full pointer-events-none opacity-90 z-0">
                 <!-- Cyan: Left side, middle height (extends past character to the left) -->
-                <div class="absolute top-[30%] right-[60%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-cyan/40 blur-[80px] lg:blur-[110px] animate-blob-wave-blue"></div>
+                <div class="absolute top-[30%] right-[60%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-cyan/50 blur-[80px] lg:blur-[110px] animate-blob-wave-blue"></div>
                 <!-- Purple: Center/Right, middle height (doesn't go too high) -->
-                <div class="absolute top-[40%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-blue-600/40 blur-[90px] lg:blur-[120px] animate-blob-wave-purple"></div>
+                <div class="absolute top-[40%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-blue-600/60 blur-[90px] lg:blur-[120px] animate-blob-wave-purple"></div>
                 <!-- Blue: Bottom Right (covers the bottom right corner well) -->
-                <div class="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-theme-purple/50 blur-[90px] lg:blur-[120px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
+                <div class="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-theme-purple/60 blur-[90px] lg:blur-[120px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
                 <!-- Pink: Bottom Left (extends to the left at the bottom) -->
-                <div class="absolute bottom-[5%] right-[70%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-pink-500/40 blur-[80px] lg:blur-[110px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
+                <div class="absolute bottom-[5%] right-[70%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-pink-500/50 blur-[80px] lg:blur-[110px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
             </div>
 
             <img src="avatar.png" alt="Raed Hawsah 3D Avatar" class="w-auto h-full object-contain object-right-bottom avatar-stealth relative z-10"
