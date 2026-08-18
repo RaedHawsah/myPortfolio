@@ -42,10 +42,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Blob Wave Animation Styles -->
+    <!-- Blob Wave & Spin Animation Styles -->
     <style>
         @keyframes blob-wave {
             0% {
@@ -53,17 +50,23 @@
                 border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             }
             33% {
-                transform: translate(30px, -30px) scale(1.1);
+                transform: translate(50px, -50px) scale(1.25);
                 border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
             }
             66% {
-                transform: translate(-20px, 20px) scale(0.9);
+                transform: translate(-40px, 40px) scale(0.85);
                 border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
             }
             100% {
                 transform: translate(0px, 0px) scale(1);
                 border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             }
+        }
+        @keyframes spin-slow {
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 25s linear infinite;
         }
         .animate-blob-wave-blue {
             animation: blob-wave 12s infinite alternate ease-in-out;
@@ -236,11 +239,13 @@
         <div
             class="absolute bottom-[85px] md:bottom-[100px] right-0 h-[40vh] lg:h-[55vh] z-20 opacity-40 lg:opacity-100 pointer-events-none lg:pointer-events-auto flex justify-end items-end">
 
-            <!-- Organic Blob Wave Lights behind character (Cyan, Blue, Purple, Pink) -->
-            <div class="absolute top-[30%] right-[10%] w-[150px] h-[150px] lg:w-[250px] lg:h-[250px] bg-theme-cyan/40 blur-[60px] lg:blur-[80px] z-0 pointer-events-none mix-blend-screen animate-blob-wave-blue"></div>
-            <div class="absolute top-[50%] right-[2%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] bg-blue-600/40 blur-[70px] lg:blur-[90px] z-0 pointer-events-none mix-blend-screen animate-blob-wave-purple"></div>
-            <div class="absolute bottom-[30%] right-[15%] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] bg-theme-purple/40 blur-[70px] lg:blur-[90px] z-0 pointer-events-none mix-blend-screen animate-blob-wave-blue" style="animation-delay: -3s;"></div>
-            <div class="absolute bottom-[10%] right-[5%] w-[150px] h-[150px] lg:w-[250px] lg:h-[250px] bg-pink-500/40 blur-[60px] lg:blur-[80px] z-0 pointer-events-none mix-blend-screen animate-blob-wave-purple" style="animation-delay: -6s;"></div>
+            <!-- Rotating Organic Blob Wave Lights behind character (Cyan, Blue, Purple, Pink) -->
+            <div class="absolute top-1/2 right-[5%] lg:right-[10%] w-[350px] h-[350px] lg:w-[500px] lg:h-[500px] z-0 pointer-events-none mix-blend-screen animate-spin-slow" style="transform-origin: center center;">
+                <div class="absolute top-0 left-0 w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] bg-theme-cyan/40 blur-[70px] lg:blur-[90px] animate-blob-wave-blue"></div>
+                <div class="absolute top-0 right-0 w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-blue-600/40 blur-[80px] lg:blur-[100px] animate-blob-wave-purple"></div>
+                <div class="absolute bottom-0 right-0 w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-purple/40 blur-[80px] lg:blur-[100px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
+                <div class="absolute bottom-0 left-0 w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] bg-pink-500/40 blur-[70px] lg:blur-[90px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
+            </div>
 
             <img src="avatar.png" alt="Raed Hawsah 3D Avatar"
                 class="w-auto h-full object-contain object-right-bottom avatar-stealth relative z-10"
