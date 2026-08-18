@@ -346,10 +346,10 @@ function initBackground() {
       // Update Nebula
       currentMouse.lerp(targetMouse, 0.03);
       nebulaUniforms.iMouse.value.copy(currentMouse);
-      nebulaUniforms.iTime.value = time * 0.3; // Slowed down nebula rotation
+      nebulaUniforms.iTime.value = time * 0.6; // Adjusted nebula rotation speed
       
       // Update Particles
-      particleMaterial.uniforms.uTime.value += 0.015; // Slowed down particle wave speed
+      particleMaterial.uniforms.uTime.value += 0.03; // Adjusted particle wave speed
       
       camera.lookAt(scene.position);
       renderer.render(scene, camera);
