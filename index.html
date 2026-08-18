@@ -140,7 +140,7 @@
             class="w-full max-w-[1400px] mx-auto px-6 md:px-16 flex flex-col lg:flex-row items-center justify-between h-full relative z-10">
 
             <!-- Hero Text (Left Side) -->
-            <div class="flex-1 w-full lg:w-[75%] flex flex-col justify-center animate-fade-in-up mt-12 lg:mt-0 z-20">
+            <div class="flex-1 w-full lg:w-[75%] flex flex-col justify-center animate-fade-in-up mt-12 lg:mt-0 z-50">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm stealth-entrance"
                     style="animation-delay: 0.1s;">
                     <span
@@ -178,35 +178,7 @@
                     </a>
                 </div>
 
-                <!-- Floating Glass Stat Card (Bottom Left) -->
-                <div
-                    class="mt-6 lg:mt-10 w-full max-w-[800px] bg-[#0A0711]/40 backdrop-blur-md border border-white/10 p-5 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)] relative animate-float-slow group overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-theme-cyan/5 to-transparent z-0 pointer-events-none"></div>
-                    <div class="flex items-center gap-5 relative z-10">
-                        <!-- Glowing Icon -->
-                        <div class="relative shrink-0">
-                            <div
-                                class="absolute inset-0 bg-theme-cyan/50 blur-lg rounded-full group-hover:bg-theme-cyan/80 transition-colors duration-500">
-                            </div>
-                            <div
-                                class="w-14 h-14 rounded-full bg-gradient-to-br from-gray-900 to-black border border-theme-cyan/50 flex items-center justify-center relative z-10 shadow-[inset_0_0_10px_rgba(0,229,255,0.2)]">
-                                <i
-                                    class="fas fa-trophy text-theme-cyan text-2xl group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]"></i>
-                            </div>
-                        </div>
-
-                        <!-- Text Content -->
-                        <div class="flex flex-col pr-2">
-                            <h4
-                                class="text-white text-lg md:text-xl font-extrabold tracking-tight mb-1 whitespace-nowrap drop-shadow-sm">
-                                Guinness World Record
-                            </h4>
-                            <p class="text-gray-400 text-sm md:text-base font-medium">
-                                Holder &bull; <span class="text-theme-cyan">Largest AI Tech Lesson</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <!-- (Guinness box moved to absolute center bottom) -->
             </div>
         </div>
 
@@ -225,6 +197,20 @@
             <img src="avatar.png" alt="Raed Hawsah 3D Avatar"
                 class="w-auto h-full object-contain object-right-bottom avatar-stealth relative z-10"
                 style="margin-bottom: -5px; margin-right: -5px;">
+        </div>
+
+        <!-- Floating Glass Stat Card (Absolute Center Bottom) -->
+        <div class="absolute bottom-[75px] md:bottom-[85px] left-1/2 -translate-x-1/2 z-50 animate-float-slow group">
+            <div class="bg-[#0A0711]/60 backdrop-blur-md border border-white/10 px-5 py-2.5 rounded-full shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center gap-3 relative overflow-hidden cursor-default">
+                <div class="absolute inset-0 bg-gradient-to-br from-theme-cyan/5 to-transparent z-0 pointer-events-none"></div>
+                <!-- Trophy Icon Small -->
+                <i class="fas fa-trophy text-theme-cyan text-lg md:text-xl drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] relative z-10"></i>
+                <!-- Text -->
+                <div class="flex flex-col relative z-10">
+                    <h4 class="text-white text-xs md:text-sm font-extrabold tracking-tight whitespace-nowrap">Guinness World Record</h4>
+                    <p class="text-gray-400 text-[10px] md:text-xs font-medium whitespace-nowrap">Holder &bull; <span class="text-theme-cyan">Largest AI Tech Lesson</span></p>
+                </div>
+            </div>
         </div>
 
         <!-- [+] RECOGNIZED & CERTIFIED BY: (Logo Ticker) -->
