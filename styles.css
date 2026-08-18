@@ -159,3 +159,47 @@ video::-webkit-media-controls-mute-button,
 video::-webkit-media-controls-volume-slider {
     display: none !important;
 }
+
+/* --- Animated Glow Border --- */
+.glow-border {
+    position: relative;
+    border-radius: 9999px; /* Fully rounded */
+    background: transparent;
+    z-index: 10;
+}
+.glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px; /* Controls glow thickness */
+    border-radius: inherit;
+    background: linear-gradient(90deg, #00E5FF, #A855F7, #00E5FF, #A855F7);
+    background-size: 300% 300%;
+    animation: gradientGlow 3s linear infinite;
+    filter: blur(8px);
+    z-index: -1;
+}
+.glow-border::after {
+    content: "";
+    position: absolute;
+    inset: -1px; /* Inner border thickness */
+    border-radius: inherit;
+    background: linear-gradient(90deg, #00E5FF, #A855F7, #00E5FF, #A855F7);
+    background-size: 300% 300%;
+    animation: gradientGlow 3s linear infinite;
+    z-index: -2;
+}
+
+.glow-content {
+    background: rgba(15, 10, 26, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: inherit;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes gradientGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
