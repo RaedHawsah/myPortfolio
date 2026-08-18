@@ -81,9 +81,9 @@ body {
 }
 
 .avatar-stealth {
-    /* Fade out the bottom edge smoothly */
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    /* Smooth non-linear fade only in the bottom 5% */
+    -webkit-mask-image: linear-gradient(to bottom, black 95%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,0.3) 99%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 95%, rgba(0,0,0,0.8) 97%, rgba(0,0,0,0.3) 99%, transparent 100%);
 
     /* Play stealth-entrance on load, then float infinitely */
     animation:
