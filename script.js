@@ -206,9 +206,7 @@ function initBackground() {
                      ? 1.0
                      : smoothstep(radius*0.3, radius*0.5, dist);
 
-        // Make the nebula semi-transparent so z-0 HTML elements shine through
-        float alpha = clamp(length(col) * 1.5, 0.3, 0.8);
-        O = vec4(col, alpha);
+        O = vec4(col, 1.0);
         
         if (!disableCenterDimming) {
           O.rgb = mix(O.rgb * 0.3, O.rgb, dim);
@@ -233,8 +231,7 @@ function initBackground() {
       vertexShader: nebulaVertex,
       fragmentShader: nebulaFragment,
       uniforms: nebulaUniforms,
-      depthWrite: false, // Prevents background from covering particles
-      transparent: true
+      depthWrite: false // Prevents background from covering particles
     });
     
     const nebulaMesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), nebulaMaterial);

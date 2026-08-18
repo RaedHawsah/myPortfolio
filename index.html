@@ -165,16 +165,7 @@
     <section id="home"
         class="relative h-screen max-h-screen flex items-center pt-20 lg:pt-24 pb-28 lg:pb-32 overflow-hidden w-full">
         
-        <!-- Lights Wrapper (Behind Particles) -->
-        <div class="absolute bottom-[85px] md:bottom-[100px] right-0 h-[40vh] lg:h-[55vh] w-[100vw] max-w-[500px] lg:max-w-[700px] z-0 pointer-events-none flex items-center justify-center">
-            <!-- Organic Blob Wave Lights behind character (Cyan, Blue, Purple, Pink) - NO SPIN -->
-            <div class="relative w-full h-full pointer-events-none mix-blend-screen opacity-80">
-                <div class="absolute top-[10%] right-[20%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-cyan/40 blur-[80px] lg:blur-[110px] animate-blob-wave-blue"></div>
-                <div class="absolute top-[30%] right-[5%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-blue-600/40 blur-[90px] lg:blur-[120px] animate-blob-wave-purple"></div>
-                <div class="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-theme-purple/40 blur-[90px] lg:blur-[120px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
-                <div class="absolute bottom-[5%] right-[25%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-pink-500/40 blur-[80px] lg:blur-[110px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
-            </div>
-        </div>
+
 
         <!-- Interactive Particle Wave Background -->
         <div id="particle-canvas" class="absolute inset-0 z-10 pointer-events-none"></div>
@@ -248,11 +239,18 @@
         </div>
 
         <!-- Hero Avatar (Bottom Right Corner) -->
-        <div
-            class="absolute bottom-[85px] md:bottom-[100px] right-0 h-[40vh] lg:h-[55vh] z-20 opacity-40 lg:opacity-100 pointer-events-none lg:pointer-events-auto flex justify-end items-end">
+        <div class="absolute bottom-[85px] md:bottom-[100px] right-0 h-[40vh] lg:h-[55vh] z-20 opacity-40 lg:opacity-100 pointer-events-none lg:pointer-events-auto flex justify-end items-end">
+            
+            <!-- Organic Blob Wave Lights behind character (Cyan, Blue, Purple, Pink) - NO SPIN -->
+            <!-- Rendered inside the z-20 container so it's over the canvas, preventing foggy look, but z-0 keeps it behind the z-10 avatar -->
+            <div class="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] pointer-events-none mix-blend-screen opacity-80 z-0">
+                <div class="absolute top-[10%] right-[20%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-cyan/40 blur-[80px] lg:blur-[110px] animate-blob-wave-blue"></div>
+                <div class="absolute top-[30%] right-[5%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-blue-600/40 blur-[90px] lg:blur-[120px] animate-blob-wave-purple"></div>
+                <div class="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-theme-purple/40 blur-[90px] lg:blur-[120px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
+                <div class="absolute bottom-[5%] right-[25%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-pink-500/40 blur-[80px] lg:blur-[110px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
+            </div>
 
-            <img src="avatar.png" alt="Raed Hawsah 3D Avatar"
-                class="w-auto h-full object-contain object-right-bottom avatar-stealth relative z-10"
+            <img src="avatar.png" alt="Raed Hawsah 3D Avatar" class="w-auto h-full object-contain object-right-bottom avatar-stealth relative z-10"
                 style="margin-bottom: -5px; margin-right: -5px;">
         </div>
 
