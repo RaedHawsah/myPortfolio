@@ -166,13 +166,13 @@
         class="relative h-screen max-h-screen flex items-center pt-20 lg:pt-24 pb-28 lg:pb-32 overflow-hidden w-full">
         
         <!-- Lights Wrapper (Behind Particles) -->
-        <div class="absolute bottom-[85px] md:bottom-[100px] right-0 h-[40vh] lg:h-[55vh] w-full z-0 opacity-60 lg:opacity-100 pointer-events-none flex justify-end items-end">
+        <div class="absolute bottom-[85px] md:bottom-[100px] right-0 h-[40vh] lg:h-[55vh] w-[100vw] max-w-[500px] lg:max-w-[700px] z-0 pointer-events-none flex items-center justify-center">
             <!-- Organic Blob Wave Lights behind character (Cyan, Blue, Purple, Pink) - NO SPIN -->
-            <div class="absolute top-1/2 right-[5%] lg:right-[10%] w-[350px] h-[350px] lg:w-[500px] lg:h-[500px] pointer-events-none mix-blend-screen">
-                <div class="absolute top-0 left-0 w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] bg-theme-cyan/80 blur-[70px] lg:blur-[90px] animate-blob-wave-blue"></div>
-                <div class="absolute top-0 right-0 w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-blue-600/80 blur-[80px] lg:blur-[100px] animate-blob-wave-purple"></div>
-                <div class="absolute bottom-0 right-0 w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-purple/80 blur-[80px] lg:blur-[100px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
-                <div class="absolute bottom-0 left-0 w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] bg-pink-500/80 blur-[70px] lg:blur-[90px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
+            <div class="relative w-full h-full pointer-events-none mix-blend-screen">
+                <div class="absolute top-[10%] right-[20%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-theme-cyan/90 blur-[70px] lg:blur-[90px] animate-blob-wave-blue"></div>
+                <div class="absolute top-[30%] right-[5%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-blue-600/90 blur-[80px] lg:blur-[100px] animate-blob-wave-purple"></div>
+                <div class="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] bg-theme-purple/90 blur-[80px] lg:blur-[100px] animate-blob-wave-blue" style="animation-delay: -3s;"></div>
+                <div class="absolute bottom-[5%] right-[25%] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] bg-pink-500/90 blur-[70px] lg:blur-[90px] animate-blob-wave-purple" style="animation-delay: -6s;"></div>
             </div>
         </div>
 
