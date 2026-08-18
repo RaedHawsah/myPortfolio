@@ -379,14 +379,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.cert-card').forEach(card => {
         card.classList.add('cursor-pointer');
         
-        // Add magnifying glass overlay
+        // Add magnifying glass overlay to the image container only
         const overlay = document.createElement('div');
-        overlay.className = 'absolute inset-0 bg-theme-purple/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none rounded-xl';
-        overlay.innerHTML = '<i class="fas fa-search-plus text-5xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"></i>';
-        card.appendChild(overlay);
+        overlay.className = 'absolute inset-0 bg-theme-purple/40 backdrop-blur-[2px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none';
+        overlay.innerHTML = '<i class="fas fa-search-plus text-4xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"></i>';
+        const img = card.querySelector('img');
+        if (img && img.parentElement) {
+            img.parentElement.appendChild(overlay);
+        }
 
         // Remove inline onclick from image to avoid double firing
-        const img = card.querySelector('img');
         if(img) img.removeAttribute('onclick');
 
         // Add click listener to the entire card
