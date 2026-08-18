@@ -53,8 +53,11 @@
     <nav class="fixed w-[95%] lg:w-[95%] max-w-[1400px] z-50 top-6 left-1/2 -translate-x-1/2 h-[76px] flex justify-between items-center px-6 lg:px-8 glass-nav-pill rounded-full"
         id="navbar">
         <!-- Logo (Left) -->
-        <div class="text-white font-bold text-2xl tracking-tighter z-10">
-            Raed Hawsah<span class="text-theme-cyan">.</span>
+        <div class="z-10 group cursor-pointer flex items-center gap-2" onclick="window.scrollTo(0,0)">
+            <span class="text-theme-purple font-mono text-xl md:text-2xl font-bold group-hover:text-theme-cyan transition-colors duration-300">~/$</span>
+            <div class="text-gray-200 font-bold font-mono text-xl md:text-2xl tracking-tighter flex items-center group-hover:text-white transition-colors duration-300">
+                <span>Raed_Hawsah</span><span class="w-2.5 h-5 md:h-6 bg-theme-cyan ml-1 animate-pulse group-hover:bg-theme-purple transition-colors duration-300"></span>
+            </div>
         </div>
 
         <!-- Navigation Links (Center) -->
@@ -62,6 +65,10 @@
             <a href="#home" class="nav-link h-full flex flex-col items-center justify-center px-2 text-gray-400 hover:text-theme-cyan transition-all group">
                 <i class="fas fa-compass text-[20px] mb-1.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
                 <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-theme-cyan transition-colors duration-300">Home</span>
+            </a>
+            <a href="#about" class="nav-link h-full flex flex-col items-center justify-center px-2 text-gray-400 hover:text-theme-cyan transition-all group">
+                <i class="fas fa-user-secret text-[20px] mb-1.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-theme-cyan transition-colors duration-300">About</span>
             </a>
             <a href="#skills" class="nav-link h-full flex flex-col items-center justify-center px-2 text-gray-400 hover:text-theme-cyan transition-all group">
                 <i class="fas fa-bolt text-[20px] mb-1.5 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
@@ -115,8 +122,8 @@
             <div class="flex-1 w-full lg:w-[45%] flex flex-col justify-center animate-fade-in-up mt-12 lg:mt-0 z-20">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm stealth-entrance" style="animation-delay: 0.1s;">
                     <span class="w-2 h-2 rounded-full bg-theme-cyan shadow-[0_0_8px_rgba(0,229,255,0.8)] animate-pulse"></span>
-                    <span class="text-gray-300 text-sm font-medium tracking-wide">
-                    Exploiting the present to secure the future. I am <span class="text-theme-purple font-bold font-mono">Raed Hawsah</span>
+                    <span class="text-gray-300 text-sm md:text-base font-medium tracking-wide">
+                    Exploiting the present to secure the future. I am <span class="text-theme-purple font-bold font-mono text-base md:text-lg">Raed Hawsah</span>
                     </span>
                 </div>
                 <h1
@@ -257,6 +264,79 @@
                     <!-- 7. SDA -->
                     <div class="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(255,107,0,0.6)] cursor-pointer">
                         <span class="text-gray-200 font-bold text-lg md:text-xl font-sans tracking-tight">Saudi Digital Academy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="relative py-20 px-6 md:px-16 w-full max-w-[1400px] mx-auto z-20">
+        <div class="mb-12 flex flex-col items-start reveal-on-scroll">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tighter font-mono">About Me</h2>
+            <div class="w-24 h-1 bg-theme-cyan rounded-full drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+            <!-- Text Content -->
+            <div class="w-full lg:w-[55%] reveal-on-scroll">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-200 mb-6 font-sans leading-snug">
+                    I deconstruct complex systems to build <span class="text-theme-cyan drop-shadow-[0_0_15px_rgba(0,229,255,0.5)]">unbreakable defenses</span>.
+                </h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6 font-sans">
+                    I am Raed Hawsah, a highly skilled Vulnerability Researcher and Penetration Tester with a profound passion for dissecting complex systems. My expertise spans offensive security, malware analysis, and low-level reverse engineering. Over the years, I have honed my ability to identify critical vulnerabilities and engineer robust security architectures to defend against advanced persistent threats.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8 font-sans">
+                    As a Guinness World Record Holder for the Largest AI Tech Lesson, I am committed to spreading knowledge and empowering the next generation of tech professionals. Driven by curiosity and a relentless pursuit of excellence, I continuously push the boundaries of cybersecurity.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="px-6 py-3 bg-theme-cyan/10 border border-theme-cyan/50 text-theme-cyan rounded-lg hover:bg-theme-cyan hover:text-black transition-all font-bold tracking-wide shadow-[0_0_15px_rgba(0,229,255,0.2)] hover:shadow-[0_0_20px_rgba(0,229,255,0.6)]">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+
+            <!-- Terminal Visual -->
+            <div class="w-full lg:w-[45%] reveal-on-scroll">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group shadow-[0_0_30px_rgba(168,85,247,0.15)] hover:shadow-[0_0_40px_rgba(168,85,247,0.3)] transition-shadow duration-500 bg-[#120b1f]/80 backdrop-blur-xl border border-theme-purple/30">
+                    <div class="absolute inset-0 bg-gradient-to-br from-theme-purple/10 to-transparent z-0 pointer-events-none"></div>
+                    
+                    <!-- Terminal Header -->
+                    <div class="flex items-center gap-2 mb-6 border-b border-white/10 pb-4 relative z-10">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        <span class="ml-3 text-xs text-gray-500 font-mono tracking-widest">raed@kali:~</span>
+                    </div>
+
+                    <!-- Terminal Content -->
+                    <div class="font-mono text-sm md:text-base text-gray-300 relative z-10 space-y-4">
+                        <div class="flex">
+                            <span class="text-theme-cyan mr-3">❯</span>
+                            <span class="text-gray-100 font-bold">whoami</span>
+                        </div>
+                        <div class="text-gray-400 ml-5 opacity-90">
+                            Raed Hawsah - Offensive Security Expert
+                        </div>
+
+                        <div class="flex">
+                            <span class="text-theme-cyan mr-3">❯</span>
+                            <span class="text-gray-100 font-bold">cat skills.txt</span>
+                        </div>
+                        <div class="text-gray-400 ml-5 leading-relaxed opacity-90 flex flex-col gap-1">
+                            <span><span class="text-theme-purple font-semibold">[+]</span> Offensive Security</span>
+                            <span><span class="text-theme-purple font-semibold">[+]</span> Vulnerability Research</span>
+                            <span><span class="text-theme-purple font-semibold">[+]</span> Reverse Engineering</span>
+                            <span><span class="text-theme-purple font-semibold">[+]</span> Malware Analysis</span>
+                        </div>
+
+                        <div class="flex">
+                            <span class="text-theme-cyan mr-3">❯</span>
+                            <span class="text-gray-100 font-bold">./check_status.sh</span>
+                        </div>
+                        <div class="text-green-400 ml-5 animate-pulse font-bold tracking-wide mt-2">
+                            [SUCCESS] SYSTEM SECURED.
+                        </div>
                     </div>
                 </div>
             </div>
