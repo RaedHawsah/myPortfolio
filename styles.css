@@ -153,3 +153,9 @@ body {
     transform: translate(-50%, -50%);
     pointer-events: none;
 }
+
+/* Hide video volume controls */
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
