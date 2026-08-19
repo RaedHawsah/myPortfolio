@@ -134,7 +134,7 @@ function initBackground() {
     const scene = new THREE.Scene();
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(1);
     renderer.setSize(winWidth, winHeight);
     container.appendChild(renderer.domElement);
 
@@ -274,9 +274,9 @@ function initBackground() {
       }
     `;
 
-    const gap = 0.3;
-    const amountX = 130;
-    const amountY = 130;
+    const gap = 0.65;
+    const amountX = 60;
+    const amountY = 60;
     const particleNum = amountX * amountY;
     const particlePositions = new Float32Array(particleNum * 3);
     const particleScales = new Float32Array(particleNum);
@@ -339,8 +339,26 @@ function initBackground() {
     targetMouse.set(window.innerWidth / 2, window.innerHeight / 2);
     currentMouse.copy(targetMouse);
 
+    let isVisible = true;
+    let raf = 0;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          if (!raf) raf = requestAnimationFrame(animate);
+        } else {
+          if (raf) {
+            cancelAnimationFrame(raf);
+            raf = 0;
+          }
+        }
+      });
+    }, { threshold: 0.0 });
+    observer.observe(container);
+
     const animate = () => {
-      requestAnimationFrame(animate);
+      if (!isVisible) return;
+      raf = requestAnimationFrame(animate);
       
       const time = clock.getElapsedTime();
       
@@ -355,7 +373,6 @@ function initBackground() {
       camera.lookAt(scene.position);
       renderer.render(scene, camera);
     };
-    animate();
 }
 
 // Ensure it runs when DOM is loaded
@@ -396,6 +413,55 @@ document.addEventListener('DOMContentLoaded', () => {
             if(img) openModal(img.src);
         });
     });
+
+    // Project Video Logic
+    const projectVideo = document.getElementById('project-video');
+    const playBtn = document.getElementById('video-play-btn');
+    
+    if (projectVideo && playBtn) {
+        const togglePlay = () => {
+            if (projectVideo.paused) {
+                projectVideo.play();
+                playBtn.style.opacity = '0';
+                playBtn.style.pointerEvents = 'none';
+            } else {
+                projectVideo.pause();
+                playBtn.style.opacity = '1';
+                playBtn.style.pointerEvents = 'auto';
+            }
+        };
+
+        playBtn.addEventListener('click', togglePlay);
+        projectVideo.addEventListener('click', togglePlay);
+
+        // Pause video when out of viewport
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && !projectVideo.paused) {
+                    projectVideo.pause();
+                    playBtn.style.opacity = '1';
+                    playBtn.style.pointerEvents = 'auto';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        videoObserver.observe(projectVideo);
+
+        // Fullscreen Button Logic
+        const fullscreenBtn = document.getElementById('video-fullscreen-btn');
+        if (fullscreenBtn) {
+            fullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // prevent playing/pausing the video when clicking fullscreen
+                if (projectVideo.requestFullscreen) {
+                    projectVideo.requestFullscreen();
+                } else if (projectVideo.webkitRequestFullscreen) {
+                    projectVideo.webkitRequestFullscreen();
+                } else if (projectVideo.msRequestFullscreen) {
+                    projectVideo.msRequestFullscreen();
+                }
+            });
+        }
+    }
 });
 
 // Mobile Menu Logic

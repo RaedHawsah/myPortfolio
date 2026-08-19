@@ -322,7 +322,7 @@ function initShaderBackground(canvasId) {
   const start = performance.now();
 
   const resizeCanvas = () => {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = 1;
     const bounds = canvas.getBoundingClientRect();
     const rawWidth = Math.max(1, Math.round(bounds.width * dpr));
     const rawHeight = Math.max(1, Math.round(bounds.height * dpr));
@@ -337,7 +337,25 @@ function initShaderBackground(canvasId) {
     }
   };
 
+  let isVisible = true;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        if (!raf) raf = requestAnimationFrame(render);
+      } else {
+        if (raf) {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        }
+      }
+    });
+  }, { threshold: 0.0 });
+  observer.observe(canvas);
+
   function render(now) {
+    if (!isVisible) return;
     raf = requestAnimationFrame(render);
     resizeCanvas();
     const width = canvas.width;
@@ -349,7 +367,6 @@ function initShaderBackground(canvasId) {
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
   
-  raf = requestAnimationFrame(render);
   window.addEventListener("resize", resizeCanvas);
 }
 
