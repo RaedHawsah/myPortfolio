@@ -269,8 +269,8 @@ function initBackground() {
         // Smoothly fade the edges (glow effect)
         float alpha = smoothstep(0.5, 0.0, dist);
         
-        // Set max opacity to 50% and multiply by the radial fade
-        gl_FragColor = vec4(uColor, alpha * 0.50);
+        // Set max opacity to 100% and multiply by the radial fade
+        gl_FragColor = vec4(uColor, alpha * 1.0);
       }
     `;
 
